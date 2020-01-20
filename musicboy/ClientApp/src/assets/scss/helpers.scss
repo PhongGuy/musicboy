@@ -1,0 +1,395 @@
+.max-w {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.i-fix {
+  vertical-align: middle;
+}
+
+.center-all {
+  margin: 0 auto;
+  position: relative;
+  top: 34px;
+}
+
+.hover-hide .hover-show {
+  display: none;
+}
+
+.hover-hide:hover .hover-show {
+  display: inline-block;
+}
+
+app-root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+mat-menu-content hr {
+  margin: 0;
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.mat-snack-bar-container {
+  color: rgba(255, 255, 255, 0.77);
+  background: #3e3e3e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+}
+
+.keep-newlines {
+  white-space: pre-line;
+}
+
+.card .card-header .tools {
+  margin: -9px;
+  float: right;
+}
+
+.logo-bg {
+  min-height: 200px;
+  background-image: url("/assets/img/app/icon/bg-dark.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.no-content {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.no-content {
+  height: 200px;
+  text-align: center;
+  background-image: url("/assets/img/app/icon/bg-dark.webp");
+}
+
+.no-content div {
+  position: relative;
+  top: 170px;
+  font-weight: 700;
+  color: #909090;
+}
+
+.no-content a {
+  position: relative;
+  top: 180px;
+  font-weight: 700;
+  color: #585858;
+}
+
+.mat-menu-content hr {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.toolbar-custom {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.f-1 {
+  flex: 1 !important;
+}
+
+.f-2 {
+  flex: 2 !important;
+}
+
+.right {
+  float: right !important;
+}
+
+.left {
+  float: left !important;
+}
+
+.hidden,
+.hide {
+  display: none !important;
+}
+
+.img-loading {
+  background-image: url("https://cdn.dribbble.com/users/600626/screenshots/2944614/loading_12.gif");
+  background-position: center;
+  background-size: 175%;
+  background-repeat: no-repeat;
+}
+
+.click {
+  cursor: pointer !important;
+}
+
+.mat-simple-snackbar-action button {
+  color: orange;
+}
+
+.highlight:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.settings-menu a {
+  width: 100%;
+  font-weight: bold;
+}
+
+.settings-menu a:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.settings-menu a.active {
+  background: #2575dc;
+  color: #fff;
+}
+
+.team-schedule:not(:last-child) {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.team-schedule:not(:first-child) {
+  padding-top: 15px;
+}
+
+.team-schedule .row {
+  padding: 1rem;
+}
+
+.team-schedule .row:not(:last-child) {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.22);
+}
+
+.settings-card .setting {
+  display: flex;
+  padding: 15px;
+}
+
+.settings-card .setting .title {
+  flex: 1;
+  // text-transform: uppercase;
+}
+
+.settings-card .setting .title small {
+  display: block;
+  margin-top: -7px;
+}
+
+.settings-card .setting .value {
+  flex: 2;
+}
+
+.settings-card .setting:not(:last-child) {
+  border-bottom: 1px solid gray;
+}
+
+.settings-card {
+  padding: 0;
+}
+
+.settings-card .mat-card-title {
+  padding: 16px 16px 0;
+}
+
+.settings-card .mat-card-subtitle {
+  padding: 0 16px;
+}
+
+.settings-card {
+  margin-bottom: 25px;
+}
+
+.option-img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.answer-maybe {
+  border: orange 2px solid;
+}
+
+.answer-yes {
+  border: green 2px solid;
+}
+
+.answer-no {
+  border: red 2px solid;
+}
+
+.mat-menu-item.mat-checkbox {
+  margin: 0;
+}
+
+.highlight-from-list {
+  border: 1px solid transparent;
+}
+
+.highlight-from-list:hover {
+  border: 1px solid;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fixed-dropdown-scrollable {
+  height: 320px;
+  width: 263px;
+  overflow: auto;
+}
+
+.dropdown-header {
+  padding: 10px 15px;
+  margin-top: -9px;
+  margin-bottom: 5px;
+  font-size: .9375rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.dropdown-header i {
+  margin-right: 6px;
+}
+
+.dropdown-list {
+  display: block;
+  padding: 0;
+  list-style-type: none;
+}
+
+.dropdown-list-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  border-bottom: 1px dashed rgba(0,0,0,.1);
+}
+
+.dropdown-list-body {
+  width: 100%;
+  line-height: 1.4;
+}
+
+.dropdown-list-text {
+  padding: 7px 9px;
+  margin-top: 3px;
+  margin-right: 17px;
+  font-size: 16px;
+  background-color: #ededed;
+}
+
+.dropload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 180px;
+  color: #ededed;
+  text-align: center;
+  cursor: pointer;
+  border: 1px dashed #ededed;
+}
+
+.figure:active,
+.figure:hover {
+  background-color: #fff;
+}
+
+.img-delete {
+  height: 30px;
+  width: 30px;
+  padding: 3px;
+  background-color: #252525;
+  border-radius: 12px;
+  position: absolute;
+  z-index: 1;
+  right: -1px;
+  top: -7px;
+  cursor: pointer;
+}
+
+.img-delete:hover .mat-icon {
+  color: red;
+}
+
+.figure.selected-true {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .1);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, .25);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, .5);
+}
+
+.mt-m-12 {
+  margin-top: -12px;
+}
+
+.mat-form-field-underline {
+  transform: none!important;
+}
+
+.mat-button .mat-button-wrapper .mat-icon {
+  vertical-align: inherit!important;
+}
+
+.btn-footers {
+  display: block!important;
+  text-align: right!important;
+}
+
+.btn-footers .mat-checkbox:not(:last-child),
+.btn-footers a:not(:last-child),
+.btn-footers button:not(:last-child) {
+  margin-right: 15px;
+}
+
+.mat-checkbox label {
+  margin-bottom: 0;
+}
+
+.small-menu .mat-menu-item {
+  line-height: 30px;
+  height: 30px;
+}
+
+markdown h1,
+markdown h2,
+markdown h3,
+markdown h4,
+markdown h5 {
+  padding-top: 17px;
+}

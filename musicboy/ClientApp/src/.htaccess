@@ -1,0 +1,19 @@
+RewriteEngine on
+RewriteCond %{HTTPS} !on
+RewriteCond %{HTTP_HOST} !=localhost
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+ErrorDocument 404 https://%{HTTP_HOST}/404
+
+# WIDGET
+RewriteRule	^widget/?$ api/index.php  [NC,L]
+
+# LOGIN
+RewriteRule	^login/?$ login_/index.php  [NC,L]
+
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
