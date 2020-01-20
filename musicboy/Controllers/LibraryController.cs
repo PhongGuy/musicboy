@@ -21,21 +21,20 @@ namespace musicboy.Controllers
             Songs.songList.Clear();
 
             DirectoryInfo d = new DirectoryInfo("music");//Assuming Test is your Folder
-            DirectoryInfo[] Genres = d.GetDirectories(); //Getting Text files
-            foreach (DirectoryInfo Genre in Genres)
+            FileInfo[] Files = d.GetFiles("*.mp3"); //Getting Text files
+            foreach (FileInfo File in Files)
             {
 
-                DirectoryInfo q = new DirectoryInfo($"music/{Genre.Name}");//Assuming Test is your Folder
-                FileInfo[] Files = q.GetFiles("*.mp3"); //Getting Text files
-                foreach (FileInfo file in Files)
-                {
-                    var song = new Song();
-                    song.title = file.Name.Replace(file.Extension, ""); 
-                    song.path = file.FullName;
-                    song.genre = Genre.Name;
+                var songInfo = TagLib.File.Create(File.FullName);
 
-                    Songs.songList.Add(song);
-                }
+                var song = new Song();
+                song.title = songInfo.Tag.Title;
+                song.artist = songInfo.Tag.FirstPerformer;
+                song.duration = songInfo.Properties.Duration;
+                song.path = File.FullName;
+                song.genre = songInfo.Tag.FirstGenre;
+
+                Songs.songList.Add(song);
             }
 
             return Songs.songList;
