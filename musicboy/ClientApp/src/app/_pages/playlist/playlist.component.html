@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-3">
+        <img src="https://cdn.playlists.net/images/genre_moods/image/small/Compilation.jpg" width="100%"
+            class="responsive-image mat-elevation-z1">
+    </div>
+    <div class="col-md-9">
+        <h2> {{playlist.name}} </h2>
+        <p>
+            {{playlist.songs.length}} Songs | {{playlist.duration}}
+        </p>
+    </div>
+</div>
+
+<mat-progress-spinner *ngIf="!playlist.songs" style="margin:0 auto;" [diameter]="40" mode="indeterminate">
+</mat-progress-spinner>
+
+<table class="mat-elevation-z8" *ngIf="playlist.songs">
+    <thead>
+        <tr>
+            <th style="width:60px"> # </th>
+            <th> Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="track-row {{(song.id == selected) ? 'selected' : ''}}" *ngFor="let song of playlist.songs"
+            routerLink="/playlist/{{playlist.id}}/{{song.id}}">
+            <td>{{song.id}}</td>
+            <td> {{song.title}} </td>
+            <td style="text-align: right;">
+                {{(song.duration.hours == 0) ? '' : song.duration.hours+':'}}
+                {{song.duration.minutes}} : {{song.duration.seconds}}
+            </td>
+        </tr>
+    </tbody>
+</table>

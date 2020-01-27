@@ -1,1 +1,22 @@
-<p>playlists works!</p>
+<div class="row">
+
+    <mat-progress-spinner *ngIf="!playlists" style="margin:0 auto;" [diameter]="40" mode="indeterminate">
+    </mat-progress-spinner>
+
+    <table class="mat-elevation-z8" *ngIf="playlists">
+        <thead>
+            <tr>
+                <th style="width:60px"> # </th>
+                <th> Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="track-row" *ngFor="let playlist of playlists" routerLink="/playlist/{{playlist.id}}">
+                <td>{{playlist.id}}</td>
+                <td> {{playlist.name}} </td>
+                <td style="text-align: right;">{{playlist.duration}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './playlists.component.html',
@@ -6,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistsComponent implements OnInit {
 
-  constructor() { }
+  playlists;
+
+  constructor(
+    private route: ActivatedRoute
+  ) {
+    this.route.params.subscribe(params => {
+      this.playlists = this.route.snapshot.data['playlists'];
+    });
+  }
 
   ngOnInit() {
   }

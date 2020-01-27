@@ -25,8 +25,8 @@ export class SongComponent implements OnInit {
         }
       }
 
-      this.playerSer.nextSong(this.album.next.id)
-      this.playerSer.prevSong(this.album.previous.id)
+      this.playerSer.nextSong("song/" + this.album.next.id)
+      this.playerSer.prevSong("song/" + this.album.previous.id)
     });
   }
 

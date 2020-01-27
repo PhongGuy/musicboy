@@ -16,6 +16,7 @@ import { SongComponent } from './_pages/song/song.component';
 import { PlayerComponent } from './_components/player/player.component';
 import { PlaylistsComponent } from './_pages/playlists/playlists.component';
 import { RandomPlaylistComponent } from './_components/random-playlist/random-playlist.component';
+import { PlaylistComponent } from './_pages/playlist/playlist.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RandomPlaylistComponent } from './_components/random-playlist/random-pl
     PlayerComponent,
     PlaylistsComponent,
     RandomPlaylistComponent,
+    PlaylistComponent,
   ],
   imports: [
     ScrollingModule,

@@ -3,6 +3,8 @@ import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { icons } from './_mock/icons';
 import { RandomPlaylistComponent } from './_components/random-playlist/random-playlist.component';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,9 @@ export class AppComponent implements OnInit {
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private http: HttpClient,
+    private router: Router
   ) {
 
     for (let i = 0; i < icons.length; i++) {
@@ -35,7 +39,12 @@ export class AppComponent implements OnInit {
     });
 
     a.afterClosed().subscribe(b => {
-      console.log(b)
+      if (b) {
+        this.http.get('api/RandomPlaylist/make').subscribe(b => {
+          console.log(b)
+          this.router.navigateByUrl('/playlist/' + b);
+        })
+      }
     })
   }
 }

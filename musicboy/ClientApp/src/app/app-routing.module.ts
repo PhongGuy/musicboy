@@ -5,6 +5,8 @@ import { SongComponent } from './_pages/song/song.component';
 import { SongResolver } from './_pages/song/song.resolver';
 import { PlaylistsComponent } from './_pages/playlists/playlists.component';
 import { PlaylistsResolver } from './_pages/playlists/playlists.resolver';
+import { PlaylistResolver } from './_pages/playlist/playlist.resolver';
+import { PlaylistComponent } from './_pages/playlist/playlist.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,20 @@ const routes: Routes = [
     component: SongComponent,
     resolve: {
       album: SongResolver
+    }
+  },
+  {
+    path: "playlist/:id",
+    component: PlaylistComponent,
+    resolve: {
+      playlist: PlaylistResolver
+    }
+  },
+  {
+    path: "playlist/:id/:song",
+    component: PlaylistComponent,
+    resolve: {
+      playlist: PlaylistResolver
     }
   },
   {

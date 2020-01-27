@@ -7,6 +7,8 @@ table {
   width: 100%;
   background: #292929;
   border-collapse: collapse;
+  margin-top: 40px;
+  margin-bottom: 150px;
 }
 
 th {
@@ -15,9 +17,6 @@ th {
   font-weight: bold;
   padding: 10px;
   text-align: left;
-  position: sticky;
-  top: 0;
-  background: #292929;
 }
 
 td {
@@ -25,11 +24,17 @@ td {
 }
 
 .track-row {
+  cursor: pointer;
   outline: none;
   border-collapse: separate;
   overflow: hidden;
 }
 
-.mat-form-field {
-  width: 100%;
+.track-row.selected,
+.track-row:hover {
+  background: #404040;
+}
+
+.album-details {
+  color: #fff;
 }

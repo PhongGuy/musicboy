@@ -4,6 +4,7 @@ using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using musicboy.Helpers;
 using musicboy.Models;
+using System.Linq;
 
 namespace musicboy.Controllers
 {
@@ -66,11 +67,19 @@ namespace musicboy.Controllers
 
         // GET: api/RandomPlaylist/make
         [HttpGet("{id}")]
-        public int Get(string action)
+        public int Get(string name)
         {
+            int i = System.IO.Directory.GetDirectories("ClientApp/src/music/playlists").Length;
 
+            string pathString = Path.Combine("ClientApp/src/music/playlists", "RANDOM_PLAYLIST");
 
-            return 0;
+            string newPath = Path.Combine("ClientApp/src/music/playlists", i.ToString());
+
+            DirectoryInfo d = new DirectoryInfo(pathString);
+
+            d.MoveTo(newPath);
+
+            return i;
         }
 
         //// POST: api/RandomPlaylist
