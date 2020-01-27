@@ -1,13 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor() {
+  songs;
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  ngOnInit() {
+    this.getSongs();
+  }
+
+  getSongs() {
+    this.http.get('/api/Library').subscribe(a => {
+      this.songs = a;
+    })
   }
 
 }

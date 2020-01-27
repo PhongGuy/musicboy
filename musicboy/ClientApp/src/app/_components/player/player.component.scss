@@ -1,0 +1,71 @@
+.play-button {
+  font-size: 40px;
+  margin-top: -16px;
+  margin-left: -15px;
+}
+
+.progressInfo .mat-slider-horizontal {
+  width: 100%;
+  margin-top: -30px;
+}
+
+.progressInfo {
+  display: flex;
+}
+
+.progressInfo div:first-child {
+  text-align: right;
+  margin-top: -15px;
+  flex: 1;
+}
+
+.progressInfo div:first-child small {
+  margin-right: 15px;
+}
+
+.progressInfo div:last-child small {
+  margin-left: 10px;
+}
+
+.progressInfo div:last-child {
+  text-align: left;
+  margin-top: -15px;
+  flex: 1;
+}
+
+.progressInfo div:nth-child(2) {
+  flex: 2;
+}
+
+.music-controls {
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.music-controls button {
+  margin: 6px;
+}
+
+.music-controls div:first-child {
+  text-align: left;
+  margin-top: -15px;
+  flex: 1;
+}
+
+.music-controls div:first-child small {
+  margin-right: 15px;
+}
+
+.music-controls div:last-child small {
+  margin-left: 10px;
+}
+
+.music-controls div:last-child {
+  text-align: right;
+  flex: 1;
+}
+
+.music-controls div:nth-child(2) {
+  flex: 2;
+  text-align: center;
+}

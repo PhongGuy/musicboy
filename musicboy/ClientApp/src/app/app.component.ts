@@ -1,7 +1,8 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { MatIconRegistry, MatSnackBar } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { icons } from './_mock/icons';
+import { RandomPlaylistComponent } from './_components/random-playlist/random-playlist.component';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,11 @@ import { icons } from './_mock/icons';
 export class AppComponent implements OnInit {
 
   constructor(
-    private snack: MatSnackBar,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private dialog: MatDialog
   ) {
-    /**
-     * We get the icons from the mock and include them in the project.
-     */
+
     for (let i = 0; i < icons.length; i++) {
       this.matIconRegistry.addSvgIcon(
         icons[i],
@@ -27,11 +26,16 @@ export class AppComponent implements OnInit {
     }
   }
 
-  /**
-   * First we make sure the header is fixed and then we start a global socket so
-   * if there are any page updates we can send them to all users.
-   */
   ngOnInit() {
+  }
 
+  random() {
+    let a = this.dialog.open(RandomPlaylistComponent, {
+      width: "600px"
+    });
+
+    a.afterClosed().subscribe(b => {
+      console.log(b)
+    })
   }
 }

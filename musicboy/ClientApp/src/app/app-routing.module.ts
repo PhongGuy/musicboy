@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './_pages/home/home.component';
+import { SongComponent } from './_pages/song/song.component';
+import { SongResolver } from './_pages/song/song.resolver';
+import { PlaylistsComponent } from './_pages/playlists/playlists.component';
+import { PlaylistsResolver } from './_pages/playlists/playlists.resolver';
 
 
 const routes: Routes = [
@@ -9,9 +13,18 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "**",
-    component: HomeComponent,
-    data: { title: "404" }
+    path: "song/:id",
+    component: SongComponent,
+    resolve: {
+      album: SongResolver
+    }
+  },
+  {
+    path: "playlists",
+    component: PlaylistsComponent,
+    resolve: {
+      playlists: PlaylistsResolver
+    }
   }
 ];
 

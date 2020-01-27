@@ -28,7 +28,8 @@ import {
     MatTooltipModule,
     MatTreeModule,
     MatBadgeModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSliderModule
 } from '@angular/material';
 
 
@@ -61,7 +62,8 @@ let materialcomponents = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatBadgeModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSliderModule
 ]
 
 @NgModule({

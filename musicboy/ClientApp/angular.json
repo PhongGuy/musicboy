@@ -1,5 +1,4 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -17,31 +16,23 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/birdykit",
+            "outputPath": "dist/musicboy",
             "index": "src/index.min.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
-              "src/api",
-              "src/login_",
               "src/assets",
-              "src/.htaccess",
+              "src/music",
               "src/favicon.ico",
-              "src/google959e1c199adcdccf.html",
-              "src/robots.txt",
               "src/index.m.html"
             ],
             "styles": [
-              "src/assets/scss/styles.scss",
               "src/assets/scss/helpers.scss",
-              "src/assets/scss/simplebar.scss"
+              "src/assets/scss/styles.scss"
             ],
-            "scripts": [
-              "src/assets/js/simplebar.js",
-              "node_modules/marked/lib/marked.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -132,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "birdykit"
+  "defaultProject": "musicboy"
 }

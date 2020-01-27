@@ -1,3 +1,33 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <ngx-loading-bar [includeSpinner]="false" color="#2575dc"></ngx-loading-bar>
-<router-outlet></router-outlet>
+<mat-toolbar role="heading" class="mat-elevation-z3">
+    <a class="col-md-3 col-xs-1 company-name" routerLink="/">
+        <span>
+            <mat-icon svgIcon="music_note"></mat-icon> &nbsp; <span class="header-text">MusicBoy</span>
+        </span>
+    </a>
+    <div class="col-md-6 col-xs-11">
+        <div class="search-container">
+            <mat-icon svgIcon="search" class="search-icon"></mat-icon>
+            <input type="text" placeholder="Search Artist" class="search-input" #searchBox>
+            <!-- <mat-list class="mat-elevation-z3 search-result" *ngIf="searchResults.length>0 && !hideResult">
+                <mat-list-item class="search-result-item" role="listitem" *ngFor="let artist of searchResults">
+                    <a (click)="onResultClick()" [routerLink]="[artist.artistId, artist.artistName]">{{
+            artist.artistName }}</a>
+                </mat-list-item>
+            </mat-list> -->
+        </div>
+    </div>
+    <div class="col-md-3 col-xs-0">
+        <button mat-button color="accent" (click)="random()">New random playlist</button>
+        <button mat-button color="primary" routerLink="/playlists">My playlists</button>
+    </div>
+</mat-toolbar>
+<div class="container">
+    <div class="body_container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<mat-toolbar role="footer" class="mat-elevation-z3 music-control">
+    <app-player></app-player>
+</mat-toolbar>

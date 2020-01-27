@@ -1,0 +1,64 @@
+<div class="music-controls" *ngIf="!coolGuyMode">
+
+
+    <div>
+        <!-- <small *ngIf="state != 'play'">{{songCurrent}}</small> -->
+        <!-- <button mat-button color="primary" (click)="toggleCoolGuyMode()">Cool</button> -->
+    </div>
+    <div>
+
+        <button mat-mini-fab routerLink="/song/{{prevSong}}" matTooltip="Previous">
+            <mat-icon>skip_previous</mat-icon>
+        </button>
+
+        <button mat-fab *ngIf="state == 'pause'" (click)="playTrack()" matTooltip="Play">
+            <mat-icon class="play-button">play_circle_outline</mat-icon>
+        </button>
+
+        <button mat-fab *ngIf="state == 'playing'" (click)="pauseTrack()" matTooltip="Pause">
+            <mat-icon class="play-button">pause_circle_outline</mat-icon>
+        </button>
+
+        <button mat-fab *ngIf="state == 'play'">
+            <mat-icon class="play-button">hourglass_empty</mat-icon>
+        </button>
+
+        <button mat-mini-fab routerLink="/song/{{nextSong}}" matTooltip="Next">
+            <mat-icon>skip_next</mat-icon>
+        </button>
+
+    </div>
+    <div>
+        <button mat-icon-button (click)="toogleMute()">
+            <mat-icon>{{volumeIcon}}</mat-icon>
+        </button>
+        <mat-slider [value]="songVolume" (input)="volume($event)"></mat-slider>
+    </div>
+
+</div>
+
+<div id="waveform" *ngIf="coolGuyMode"></div>
+
+
+<div class="progressInfo" *ngIf="!coolGuyMode">
+    <div>
+        <small *ngIf="state != 'play'">{{songCurrent}}</small>
+    </div>
+    <div>
+
+        <mat-slider [value]="progressbar" *ngIf="state == 'playing' || state ==
+        'pause'" (change)="updateSong($event)" (input)="calculateChange($event)">
+        </mat-slider>
+
+        <mat-progress-bar mode="buffer" *ngIf="state == 'play'" color="accent"></mat-progress-bar>
+
+    </div>
+    <div>
+        <small *ngIf="state != 'play'">{{songLength}}</small>
+    </div>
+</div>
+
+
+
+
+<audio style="display: none;" controls #player="" (ended)="playerEnded()"></audio>

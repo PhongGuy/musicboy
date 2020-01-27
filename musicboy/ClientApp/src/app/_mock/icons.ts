@@ -1,5 +1,5 @@
 export const icons: string[] = [
-    'notifications',
+    'play_circle_outline',
     'search',
     'comment',
     'thumb_up',
@@ -33,5 +33,6 @@ export const icons: string[] = [
     'view_module',
     'view_list',
     'edit',
+    'music_note',
     'delete'
 ];

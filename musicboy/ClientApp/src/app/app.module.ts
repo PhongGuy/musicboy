@@ -12,11 +12,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material';
 import { HomeComponent } from './_pages/home/home.component';
+import { SongComponent } from './_pages/song/song.component';
+import { PlayerComponent } from './_components/player/player.component';
+import { PlaylistsComponent } from './_pages/playlists/playlists.component';
+import { RandomPlaylistComponent } from './_components/random-playlist/random-playlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    SongComponent,
+    PlayerComponent,
+    PlaylistsComponent,
+    RandomPlaylistComponent,
   ],
   imports: [
     ScrollingModule,
@@ -38,6 +46,7 @@ import { HomeComponent } from './_pages/home/home.component';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
+    RandomPlaylistComponent
   ]
 })
 export class AppModule {

@@ -1,5 +1,76 @@
-.mat-progress-bar {
+.mat-elevation-z3 {
   position: fixed;
-  top: 0;
-  z-index: 100000;
+  z-index: 2;
+  background: rgb(38, 38, 38);
+}
+
+.header-text {
+  display: inline;
+}
+@media (max-width: 599px) {
+  .header-text {
+    display: none;
+  }
+
+  .company-name {
+    max-width: 65px;
+  }
+}
+
+.company-name {
+  text-decoration: none;
+  color: #fff;
+  height: 32px;
+}
+
+.company-name .mat-icon {
+  vertical-align: middle;
+}
+
+.search-container {
+  position: relative;
+  display: block;
+  background-color: rgba(17, 17, 17, 0.59);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.search-icon {
+  color: #616161;
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  font-size: 14px;
+}
+
+.search-input {
+  font-size: 16px;
+  color: #fff;
+  padding: 0 72px;
+  box-sizing: border-box;
+  height: 48px;
+  width: 100%;
+  font-weight: 400;
+  outline: none;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: border .1s ease-out;
+}
+
+.music-control {
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  display: block;
+}
+
+.search-result {
+  max-height: 400px;
+  overflow: auto;
+  min-width: 400px;
+}
+
+.search-result-item {
+  cursor: pointer;
+  border-bottom: 1px solid #f2f2f2;
 }

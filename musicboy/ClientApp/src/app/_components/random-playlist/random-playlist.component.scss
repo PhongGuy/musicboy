@@ -1,0 +1,31 @@
+.row {
+  padding-top: 8rem;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  background: #292929;
+  border-collapse: collapse;
+}
+
+th {
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  background: #292929;
+}
+
+td {
+  padding: 10px;
+}
+
+.track-row {
+  outline: none;
+  border-collapse: separate;
+  overflow: hidden;
+}

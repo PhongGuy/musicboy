@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using musicboy.Helpers;
 using musicboy.Models;
 
 namespace musicboy.Controllers
@@ -17,52 +14,64 @@ namespace musicboy.Controllers
         [HttpGet]
         public List<Song> Get()
         {
-
-            Songs.songList.Clear();
-
-            DirectoryInfo d = new DirectoryInfo("music");//Assuming Test is your Folder
-            FileInfo[] Files = d.GetFiles("*.mp3"); //Getting Text files
-            foreach (FileInfo File in Files)
-            {
-
-                var songInfo = TagLib.File.Create(File.FullName);
-
-                var song = new Song();
-                song.title = songInfo.Tag.Title;
-                song.artist = songInfo.Tag.FirstPerformer;
-                song.duration = songInfo.Properties.Duration;
-                song.path = File.FullName;
-                song.genre = songInfo.Tag.FirstGenre;
-
-                Songs.songList.Add(song);
-            }
-
-            return Songs.songList;
+            return Functions.GetSongs();
         }
 
         // GET: api/Library/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public SongAlbum Get(int id)
         {
-            return "value";
+            SongAlbum album = new SongAlbum();
+            var songs = Functions.GetSongs();
+
+            foreach (var item in songs)
+            {
+                if (item.Id == id)
+                {
+                    album.Id = item.Id;
+                    album.Album = item.Album;
+                    album.Picture = item.Picture;
+                    album.Artist = item.Artist;
+                    album.Genre = item.Genre;
+                    album.Year = item.Year;
+                    album.Next = songs.Where(a => a.Album == album.Album).OrderBy(a => a.Track).Where(a => a.Track > item.Track).FirstOrDefault();
+                    album.Previous = songs.Where(a => a.Album == album.Album).Where(a => a.Track == (item.Track - 1)).FirstOrDefault();
+
+                    break;
+                }
+            }
+
+            if (album.Next == null)
+            {
+                album.Next = songs.Where(a => a.Album == album.Album).OrderBy(a => a.Track).First();
+            }
+
+            if (album.Previous == null)
+            {
+                album.Previous = songs.Where(a => a.Album == album.Album).OrderBy(a => a.Track).Last();
+            }
+
+            album.Songs = songs.Where(a => a.Album == album.Album).OrderBy(a => a.Track).ToList();
+
+            return album;
         }
 
-        // POST: api/Library
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        //// POST: api/Library
+        //[HttpPost]
+        //public void Post([FromBody] string value)
+        //{
+        //}
 
-        // PUT: api/Library/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //// PUT: api/Library/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE: api/ApiWithActions/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }
