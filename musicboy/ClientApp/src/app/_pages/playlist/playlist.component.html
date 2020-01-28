@@ -8,6 +8,7 @@
         <p>
             {{playlist.songs.length}} Songs | {{playlist.duration}}
         </p>
+        <button mat-button color="warn" (click)="delete(playlist.id)">DELETE PLAYLIST</button>
     </div>
 </div>
 

@@ -39,8 +39,8 @@ export class AppComponent implements OnInit {
     });
 
     a.afterClosed().subscribe(b => {
-      if (b) {
-        this.http.get('api/RandomPlaylist/make').subscribe(b => {
+      if (b != null && b != false) {
+        this.http.get('api/RandomPlaylist/' + encodeURI(b)).subscribe(b => {
           console.log(b)
           this.router.navigateByUrl('/playlist/' + b);
         })

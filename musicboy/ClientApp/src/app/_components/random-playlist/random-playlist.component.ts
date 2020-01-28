@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material';
 export class RandomPlaylistComponent implements OnInit {
 
   songs;
+  name;
 
   constructor(
     private http: HttpClient,

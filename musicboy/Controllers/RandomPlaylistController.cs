@@ -66,14 +66,14 @@ namespace musicboy.Controllers
         }
 
         // GET: api/RandomPlaylist/make
-        [HttpGet("{id}")]
+        [HttpGet("{name}")]
         public int Get(string name)
         {
             int i = System.IO.Directory.GetDirectories("ClientApp/src/music/playlists").Length;
 
             string pathString = Path.Combine("ClientApp/src/music/playlists", "RANDOM_PLAYLIST");
 
-            string newPath = Path.Combine("ClientApp/src/music/playlists", i.ToString());
+            string newPath = Path.Combine("ClientApp/src/music/playlists", name.ToString());
 
             DirectoryInfo d = new DirectoryInfo(pathString);
 
@@ -94,7 +94,7 @@ namespace musicboy.Controllers
         //{
         //}
 
-        //// DELETE: api/ApiWithActions/5
+        // DELETE: api/ApiWithActions/5
         //[HttpDelete("{id}")]
         //public void Delete(int id)
         //{

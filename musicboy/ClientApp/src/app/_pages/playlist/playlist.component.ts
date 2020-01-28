@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlayerService } from 'src/app/_services/player.service';
+import { MatDialog, MatSnackBar } from '@angular/material';
+import { DeleteComponent } from './delete/delete.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-playlist',
@@ -14,7 +17,11 @@ export class PlaylistComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private playerSer: PlayerService
+    private playerSer: PlayerService,
+    private dialog: MatDialog,
+    private http: HttpClient,
+    private snack: MatSnackBar,
+    private router: Router
   ) {
     this.route.params.subscribe(params => {
       console.log(params)
@@ -37,5 +44,24 @@ export class PlaylistComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  delete(id: string) {
+    let d = this.dialog.open(DeleteComponent, {
+      width: "300px"
+    })
+
+    d.afterClosed().subscribe(a => {
+      if (a) {
+        this.http.delete('api/Playlist/' + id).subscribe(b => {
+          if (b) {
+            this.snack.open('Playlist was deleted');
+            this.router.navigateByUrl('/playlists');
+          } else {
+            this.snack.open('Playlist was not deleted, there was an error');
+          }
+        })
+      }
+    })
   }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using musicboy.Helpers;
 using musicboy.Models;
 using System.Linq;
+using System.IO;
 
 namespace musicboy.Controllers
 {
@@ -60,10 +61,15 @@ namespace musicboy.Controllers
         //{
         //}
 
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public bool Delete(int id)
+        {
+            var playlists = Functions.GetPlaylists().Where(a => a.Id == id).FirstOrDefault();
+            DirectoryInfo d = new DirectoryInfo("ClientApp/src/music/playlists/"+playlists.Name);
+            d.Delete(true);
+
+            return true;
+        }
     }
 }
