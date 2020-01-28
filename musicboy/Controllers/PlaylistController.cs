@@ -66,7 +66,7 @@ namespace musicboy.Controllers
         public bool Delete(int id)
         {
             var playlists = Functions.GetPlaylists().Where(a => a.Id == id).FirstOrDefault();
-            DirectoryInfo d = new DirectoryInfo("ClientApp/src/music/playlists/"+playlists.Name);
+            DirectoryInfo d = new DirectoryInfo("ClientApp/src/music/playlists/" + playlists.Name);
             d.Delete(true);
 
             return true;

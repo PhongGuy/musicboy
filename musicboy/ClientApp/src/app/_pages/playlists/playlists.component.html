@@ -3,7 +3,7 @@
     <mat-progress-spinner *ngIf="!playlists" style="margin:0 auto;" [diameter]="40" mode="indeterminate">
     </mat-progress-spinner>
 
-    <table class="mat-elevation-z8" *ngIf="playlists">
+    <table class="mat-elevation-z8" *ngIf="playlists.length > 0">
         <thead>
             <tr>
                 <th style="width:60px"> # </th>
@@ -18,5 +18,9 @@
             </tr>
         </tbody>
     </table>
+
+    <div *ngIf="playlists.length == 0">
+        <h1>There are not playlists</h1>
+    </div>
 
 </div>
